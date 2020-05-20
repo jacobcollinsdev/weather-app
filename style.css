@@ -80,3 +80,17 @@ main{
 .current .hi-low{
     font-size:1.3rem;
 }
+
+.fas {
+    margin: 20px 0px;
+    color:rgb(255, 251, 0);
+    font-size:1.2rem;
+    display:inline-block;
+    width:20px;
+    height:20px;
+    z-index:10;
+}
+
+.fa-cloud-sun{
+    color:rgb(253, 124, 4);
+}

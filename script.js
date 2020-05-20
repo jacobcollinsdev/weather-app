@@ -37,6 +37,19 @@ function displayResults(weather){
     let minMax = document.querySelector('.hi-low');
     minMax.innerText = `${weather.main.temp_min.toFixed(1)}°c / ${weather.main.temp_max.toFixed(1)}°c`
 
+    let sunRise = weather.sys.sunrise * 1000;
+    let sunSet = weather.sys.sunset * 1000;
+    let sunRiseTime = new Date(sunRise)
+    let sunSetTime = new Date(sunSet);
+    let sunRiseHour = sunRiseTime.getHours();
+    let sunSetHour = sunSetTime.getHours();
+    let sunRiseMins = sunRiseTime.getMinutes();
+    let sunSetMins = sunSetTime.getMinutes();
+
+    let riseSet = document.querySelector('.rise-set');
+    riseSet.innerHTML = `<i class="fas fa-sun"></i> 0${sunRiseHour}:${sunRiseMins}${addZero(sunRiseMins.toString())}  <i class="fas fa-cloud-sun"></i> &nbsp; ${sunSetHour}:${sunSetMins}${addZero(sunSetMins.toString())}`;
+
+
 }
 
 function dateBuilder(d){
@@ -49,4 +62,13 @@ function dateBuilder(d){
     let year = d.getFullYear();
 
     return `${day} ${date} ${month} ${year}`;
+}
+
+function addZero(arg){
+    if(arg.length < 2){
+        return '0';
+    }
+    else{
+        return '' ;
+    }
 }
