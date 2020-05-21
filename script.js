@@ -47,9 +47,7 @@ function displayResults(weather){
     let sunSetMins = sunSetTime.getMinutes();
 
     let riseSet = document.querySelector('.rise-set');
-    riseSet.innerHTML = `<i class="fas fa-sun"></i> 0${sunRiseHour}:${sunRiseMins}${addZero(sunRiseMins.toString())}  <i class="fas fa-cloud-sun"></i> &nbsp; ${sunSetHour}:${sunSetMins}${addZero(sunSetMins.toString())}`;
-
-
+    riseSet.innerHTML = `<i class="fas fa-sun"></i> ${addZero(sunRiseHour)}${sunRiseHour}:${addZero(sunRiseMins)}${sunRiseMins} <i class="fas fa-cloud-sun"></i> &nbsp; ${addZero(sunSetHour)}${sunSetHour}:${addZero(sunSetMins)}${sunSetMins}`;
 }
 
 function dateBuilder(d){
@@ -65,7 +63,7 @@ function dateBuilder(d){
 }
 
 function addZero(arg){
-    if(arg.length < 2){
+    if(arg < 10){
         return '0';
     }
     else{
